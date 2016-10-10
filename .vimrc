@@ -104,39 +104,36 @@ imap <F1> <Esc>
 set tags=tags;/
 
 " set makeprg=jam
-set makeprg=ant
+" set makeprg=ant
+set makeprg=pylint\ --reports=n\ --msg-template=\"{path}:{line}:\ {msg_id}\ {symbol},\ {obj}\ {msg}\"\ %:p
+set errorformat=%f:%l:\ %m
 
 set backupdir=./.backup,/tmp,.
 set directory=./.backup,/tmp,.
-
-nnoremap @p4e :!p4 edit %
-nnoremap @p4a :!p4 add %
-nnoremap @p4d :!p4 diff %
 
 "
 " Python related stuff
 "
 " Pylint is the default compiler for python files
-"let g:pylint_onwrite = 0
-"au FileType python compiler pylint
+" let g:pylint_onwrite = 0
+" au FileType python compiler pylint
+" au FileType python makeprg=pylint\ --reports=n\ --msg-template=\"{path}:{line}:\ {msg_id}\ {symbol},\ {obj}\ {msg}"\ %:p
+" au BufWritePost *.py make
 " Except test files which are run using pytest.
-"au! BufNewFile,BufRead test_*.py compiler unit2
+" au! BufNewFile,BufRead test_*.py compiler unit2
 " and launched using vim-makegreen
 map <leader>rt <Plug>MakeGreen
 " Code quality
 " Complexity evaluation thanks to GRB
 " (https://github.com/garybernhardt/pycomplexity/blob/master/complexity.vim)
-map <F5> :call ShowComplexity()<cr>
-map <F6> :call Pylint(1)<cr>
+" map <F5> :call ShowComplexity()<cr>
+" map <F6> :call Pylint(1)<cr>
 
 " Display tag list
 map <F7> :TlistToggle<cr>
 
 let python_highlight_all = 1
 let python_slow_sync = 1
-
-au BufRead,BufNewFile ~/code/branches/user/mkidder/DungeonKeeper/dev/game/shared/db_data/* set filetype=javascript
-au BufRead,BufNewFile ~/code/branches/user/mkidder/DungeonKeeper/guild_sandbox/game/shared/db_data/* set filetype=javascript
 
 if has("gui")
     inoremap <C-Space> <C-n>
