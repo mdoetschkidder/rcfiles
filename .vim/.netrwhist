@@ -1,11 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/Users/mdk/Desktop/Broadsword/telemetry'
-let g:netrw_dirhist_2='/Users/mdk/Desktop/Broadsword/telemetry/zips'
-let g:netrw_dirhist_3='/Users/mdk/Desktop/Broadsword/telemetry/zips/myth'
-let g:netrw_dirhist_4='/Users/mdk/Desktop/Broadsword/telemetry/zips/myth/archive'
-let g:netrw_dirhist_5='/Users/mdk/Desktop/Broadsword/telemetry/zips/myth/archive/logs'
-let g:netrw_dirhist_6='/Users/mdk/Desktop/Broadsword/telemetry/zips/myth/archive/logs/dpm2-live.dk.aws.eamythic.net'
-let g:netrw_dirhist_7='/Users/mdk/Desktop/Broadsword/telemetry/zips/myth/archive/logs/dpm2-live.dk.aws.eamythic.net/dpm1'
-let g:netrw_dirhist_8='/Users/mdk/Desktop/Broadsword/telemetry/zips/myth/archive/logs/dyn-dungeon-1111-livea.dk.aws.eamythic.net'
-let g:netrw_dirhist_9='/Users/mdk/code/mythic/code/Branches/user/mkidder/DungeonKeeper/dev/game/client/build'
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/Users/mdoetschkidder/Library/Python/2.7/lib/python/site-packages/powerline/segments'
+let g:netrw_dirhist_2='/Users/mdoetschkidder/Library/Python/2.7/lib/python/site-packages/powerline'
+let g:netrw_dirhist_3='/Users/mdoetschkidder/Library/Python/2.7/lib/python/site-packages/powerline/config_files'
+let g:netrw_dirhist_4='/Users/mdoetschkidder/Library/Python/2.7/lib/python/site-packages/powerline/config_files/colorschemes'
+let g:netrw_dirhist_5='/Users/mdoetschkidder/Library/Python/2.7/lib/python/site-packages/powerline/config_files/colorschemes/vim'

@@ -9,9 +9,10 @@ export ZSH=/Users/mdoetschkidder/.oh-my-zsh
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="robbyrussell"
 ZSH_THEME="bullet-train"
+#ZSH_THEME="agnoster"
 
 # Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
@@ -52,7 +53,7 @@ ZSH_THEME="bullet-train"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git vi-mode) 
 
 source $ZSH/oh-my-zsh.sh
 
@@ -87,6 +88,36 @@ source $ZSH/oh-my-zsh.sh
 #
 export DIVVY_CODE="$HOME/code/divvy/" # Root code dir
 export DIVVY_VENV="$HOME/DIVVY_VIRTUALENV" # Virtualenv
-alias dvrun="${DIVVY_CODE}/devscripts/run.pl" # Run script
-alias dvis="dvrun is" # Interface server
-alias dvod="dvrun od" # On-demand worker
+export DIVVY_DEV="$HOME/code/divvy/divvy-dev/" # Root code dir
+# export DIVVY_LIB="$HOME/code/divvy/libcloud-divvy/" 
+alias dvrun="${DIVVY_CODE}/divvy-dev/run.pl" # Run script
+
+export DIVVY="$HOME/code/divvy"
+export DIVVY_SRC="$DIVVY/divvy-dev/Divvy"
+
+alias dvdocs="vex divvy sphinx-build -b html -E -a $DIVVY_SRC/docs/source $DIVVY_SRC/docs/html && open $DIVVY_SRC/docs/html/index.html"
+alias ir="vex divvy pip install -r $DIVVY_SRC/requirements.txt"
+alias dv="vex divvy python $DIVVY_SRC/src/python/divvycloud.py"
+alias dvjs='dv scheduler'
+alias dvh='dv harvester'
+alias dvlh='dv long_harvester'
+alias dvp='dv processor'
+alias dvo='dv ondemand'
+alias dvis='dv webserver'
+alias dvuh='dv worker -q harvester -q harvester-long'
+alias dvwk='dv worker -q on-demand -q processor -q harvester-long -q harvester'
+alias dviss='pushd .;cd ~/code/divvy/divvy-dev/Divvy/; yarn install; yarn run nowatch; popd'
+alias im="vex divvy python $DIVVY_SRC/src/python/DivvyCodeGen2.py"
+# alias dvutqf="pushd .; vex divvy; cd ~/code/divvy/divvy-dev/Divvy/src/python; python -m unittest discover --start-directory tests/unit/query_filters; exit; popd"
+
+alias pyclean="autoflake --remove-all-unused-imports --remove-unused-variables --in-place *.py ; autopep8 --in-place --max-line-length=109 *.py ; docformatter --in-place --pre-summary-newline --make-summary-multi-line *.py"
+alias pycleanr="autoflake --remove-all-unused-imports --remove-unused-variables --in-place --recursive *.py ; autopep8 --in-place --recursive --max-line-length=109 *.py ; docformatter --in-place --pre-summary-newline --make-summary-multi-line --recursive *.py"
+
+# VIM keybindings
+bindkey -v
+export KEYTIMEOUT=1
+
+LC_CTYPE=en_US.UTF-8
+export LC_CTYPE
+
+alias config='/usr/bin/git --git-dir=/Users/mdoetschkidder/.cfg/ --work-tree=/Users/mdoetschkidder'
